@@ -1,0 +1,27 @@
+// sm_t:スマホ縦 縦向き 768px未満
+// sm_y:スマホ横 横向き 768px未満
+// mt:タブレット 768px以上 1000px未満
+// np:ノートPC 1000px以上 1200px未満
+// dp:でかいディスプレイ 1200px以上
+// $breakpoints: (
+// 	'sm_t': 'screen and (orientation: portrait) and (max-width: 768px)',
+// 	'sm_y': 'screen and (orientation: landscape) and (max-width: 768px)',
+// 	'mt': 'screen and (min-width: 768px) and (max-width: 1000px)',
+// 	'np': 'screen and (min-width: 1000px) and (min-width: 1200px)',
+// 	'dp': 'screen and (min-width: 1200px)'
+// ) !default;
+
+// sm:スマホ 768px未満
+// sm_y:スマホ横 横向き 768px未満
+// pc:タブレットとPC 768px以上
+$breakpoints:(
+	'sm': 'screen and (max-width: 768px)',
+	'sm_y':'screen and (orientation: landscape) and (max-width: 768px)',
+	'pc': 'screen and (min-width: 768px)'
+) !default;
+
+@mixin mq($breakpoint: pc) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}

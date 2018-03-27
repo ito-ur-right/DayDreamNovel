@@ -62,7 +62,7 @@ include('head.html');
     </main>
     <footer class="footer none">
         <div class="copy">
-            <p>Copyright &copy; 2017 伊藤右貴 All Rights Reserved.</p>
+            <p>Copyright &copy; 2017 UR_RIGHT_LAB All Rights Reserved.</p>
         </div>
         <script type="text/javascript" src="js/main.js" charset="utf-8"></script>
     </footer>

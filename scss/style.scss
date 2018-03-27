@@ -1,0 +1,449 @@
+@import "break"; //_break.scssをコンパイルせずに利用している
+@import 'compass';
+$green:#33cccc;
+$red:#cc3333;
+$blue:#336699;
+$gray_font:#777777;
+$gray:#cccccc;
+$orange:#ffcc99;
+$orange_opa:rgba(255, 204, 153, 0.6);
+$white:#ffffff;
+$black:#333333;
+$beige:#fffcf0;
+$base-font-size:17px;
+html {
+    background: $beige;
+}
+
+header {
+    // display: table;
+    width: 100vw;
+    height: 100vh;
+    // background: $white;
+    // padding: 5vh 0;
+    h1 {
+        text-align: center;
+        font-family: serif;
+        color: $orange;
+        padding-bottom: 10px;
+        font-weight: bold;
+        @include mq(sm) {
+            font-size: 1.7em;
+        }
+        @include mq(pc) {
+            font-size: 40px;
+        }
+    }
+}
+
+.page_wrapper {
+    margin: 0 auto;
+}
+
+.form_wrapper {
+    padding: 5vh 0;
+    min-height: 90vh;
+}
+
+.form_table {
+    display: table;
+    width: 100%;
+    min-height: 90vh;
+}
+
+.form {
+    padding: auto 0;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table {
+    @include mq(sm) {
+        display: block;
+    }
+    @include mq(pc) {
+        // padding: 0 20px;
+        display: table;
+    }
+    h2 {
+        @include border-radius(10px);
+        background: $orange_opa;
+        text-align: center;
+        color: $beige;
+        font-weight: bold;
+        // margin-top: 40px;
+        box-shadow: 0 0 20px $orange;
+        padding: 5px;
+        @include mq(sm) {
+            font-size: 1.3em;
+        }
+        @include mq(pc) {
+            font-size: 25px;
+        }
+    }
+    margin: auto;
+}
+
+.input_text {
+    @include mq(sm) {
+        display: block;
+        width: 80%
+    }
+    @include mq(pc) {
+        display: table-cell;
+    }
+    padding-top: 1em;
+    text-align: center;
+    margin: auto;
+    input,
+    label {
+        @include transition(all, .2s);
+        font-size: 15px;
+        font-family: serif;
+        font-weight: 400;
+    }
+    p {
+        margin: 20px 10px;
+        position: relative;
+    }
+    input {
+        @include mq(sm) {
+            width: 100%;
+        }
+        @include mq(pc) {
+            // padding: 20px 0;
+            width: 30vw;
+        }
+        padding: .5em .5em .5em 3.5em;
+        // background: #fff;
+        @include border-radius(0);
+        @include appearance(none);
+        @include box-sizing(border-box);
+        background: $beige;
+        outline: none;
+        border-top: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        border-right: 0;
+        border-left: 0;
+        @include transition(all, .7s);
+        &:focus {
+            padding-left: .5em;
+            box-shadow: 0 0 10px $orange;
+            border-top: 1px solid $orange_opa;
+            border-bottom: 1px solid $orange_opa;
+        }
+        &:focus + label {
+            top: -1.5em;
+        }
+    }
+    label {
+        position: absolute;
+        top: .7em;
+        left: .5em;
+        color: $gray_font;
+        line-height: 1;
+    }
+}
+
+p {
+    margin-top: 2.5em;
+}
+
+.novel {
+    width: 80%;
+    margin: 5em auto;
+}
+
+.novel_text {
+    font-family: serif;
+    line-height: 2em;
+    color: $gray_font;
+}
+
+.top {
+    background: $beige;
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto 0;
+}
+
+.top_logo {
+    display: block;
+    margin: auto;
+    @include mq(sm) {
+        width: 70vw;
+        height: 70vw;
+    }
+    @include mq(sm_y) {
+        width: 50vh;
+        height: 50vh;
+    }
+    @include mq(pc) {
+        width: 60vh;
+        height: 60vh;
+    }
+}
+
+h3 {
+    text-align: center;
+    color: $gray_font;
+    font-weight: bold;
+    padding: 20px 0 0 0;
+    @include mq(sm) {
+        font-size: 1.1em;
+    }
+    @include mq(pc) {
+        font-size: 20px;
+    }
+}
+
+.top_title {
+    padding: 3vh 0;
+    font-size: 20px;
+    color: $gray_font;
+}
+
+// a {
+//     position: absolute;
+//     bottom: 20px;
+//     left: 50%;
+//     z-index: 2;
+//     display: inline-block;
+//     -webkit-transform: translate(0, -50%);
+//     transform: translate(0, -50%);
+//     text-decoration: none;
+//     padding-top: 80px;
+// }
+.contents {
+    //
+    @for $i from 1 through 5 {
+        @if $i<5 {
+            &:nth-last-child(#{$i}) {
+                border-top: solid 3px $orange;
+            }
+        }
+        @if $i>1 {
+            &:nth-last-child(#{$i}) {
+                border-bottom: solid 3px $orange;
+            }
+        }
+    }
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.9);
+    @include transition(all, 300ms);
+    @include opacity(0);
+    @include translateY(20vh);
+    @include mq(sm) {
+        padding: 10vw 0;
+    }
+    @include mq(sm_y) {
+        padding: 15vh 0;
+    }
+    @include mq(pc) {
+        padding: 15vh 0;
+    }
+}
+
+.fade {
+    @include opacity(1.0);
+    @include translateY(0);
+}
+
+.header_bar {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    width: 100vw;
+    @include translateY(-100%);
+    @include transition(all, 500ms);
+    @include mq(sm) {
+        height: 10vh;
+    }
+    @include mq(sm_y) {
+        height: 15vh;
+    }
+    @include mq(pc) {
+        height: 12vh;
+    }
+    .bar_logo {
+        height: 100%;
+        padding-left: 5px;
+        img {
+            cursor: pointer;
+            padding: auto 0;
+            height: 90%;
+        }
+    }
+}
+
+.chase {
+    @include translateY(0);
+}
+
+.contents_child {
+    @include mq(sm) {
+        padding: 5vh 5vw;
+    }
+    @include mq(pc) {
+        padding: 5vh 10vw;
+    }
+}
+
+ul {
+    padding: 20px 0;
+}
+
+li {
+    line-height: 1.5em;
+    list-style: none;
+    text-align: center;
+    font-weight: bold;
+    @include mq(sm) {
+        font-size: 1em;
+    }
+    @include mq(pc) {
+        font-size: 20px;
+    }
+}
+
+th {
+    color: $blue;
+    padding: 20px 0;
+    font-weight: bold;
+    // &:nth-last-child(1) {
+    //     border-left: dashed $orange 1px;
+    // }
+    // &:nth-last-child(2) {
+    //     border-right: dashed $orange 1px;
+    // }
+}
+
+tr {
+    @for $i from 1 through 14 {
+        @if $i<14 {
+            &:nth-last-child(#{$i}) {
+                border-top: solid 1px $orange;
+            }
+        }
+        @if $i>1 {
+            &:nth-last-child(#{$i}) {
+                border-bottom: solid 1px $orange;
+            }
+        }
+    }
+}
+
+// .td_right {
+//     border-left: dashed $orange 1px;
+// }
+// .td_left {
+//     border-right: dashed $orange 1px;
+// }
+footer {
+    width: 100%;
+    display: table;
+    @include mq(sm) {
+        padding: 2vh 0;
+    }
+    @include mq(pc) {
+        padding: 10px 0;
+    }
+    // background: $blue;
+}
+
+.copy {
+    display: table-cell;
+    vertical-align: middle;
+    color: $black;
+    text-align: right;
+    padding-right: 5px;
+    @include mq(sm) {
+        font-size: 7px;
+    }
+    @include mq(pc) {
+        font-size: 10px;
+    }
+}
+
+@include keyframes(sdb) {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.tweet {
+    display: table-cell;
+    margin: auto 0;
+    padding: 0 10px;
+}
+
+.twitter-follow-button {
+    margin: 10px 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text_bold {
+    font-weight: bold;
+    color: $orange;
+}
+
+.text_attention {
+    // font-size: 85%;
+    font-weight: bold;
+    color: $red;
+}
+
+.more {
+    @include mq(sm) {
+        font-weight: bold;
+        color: $red;
+        font-size: 0.8em;
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+    }
+    @include mq(pc) {
+        display: none;
+    }
+}
+
+.to_contents {
+    border-bottom: 1px $green;
+    cursor: pointer;
+    font-weight: bold;
+    color: $red;
+}
+
+.none {
+    display: none;
+}
+
+// input[type="text"] {
+//     @include input-placeholder {
+//         color: #3498db;
+//     }
+//     width: 200px;
+//     -webkit-transition: width .3s;
+//     transition: width .3s;
+//     outline: none;
+//     border: 1px solid #aaa;
+//     -webkit-transition: all .3s;
+//     transition: all .3s;
+// }
+// input[type="text"]:focus {
+//     width: 300px;
+//     box-shadow: 0 0 7px #1abc9c;
+//     border: 1px solid #1abc9c;
+// }
